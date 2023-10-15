@@ -2,65 +2,91 @@ package arraysandhashing
 
 import "testing"
 
-func containsDuplicateGetTestCase(num int) []int {
-    switch num {
-    case 1:
-        return []int{1,2,3,1}
-    case 2:
-        return []int{1,2,3,4}
-    case 3:
-        return []int{1,1,1,3,3,4,3,2,4,2}
+type containsDuplicateTestCase struct {
+    array []int
+    result bool
+}
+
+func containsDuplicateGetTestCase(num int) containsDuplicateTestCase {
+	switch num {
+	case 1:
+		return containsDuplicateTestCase{
+            []int{1, 2, 3, 1},
+            true,
+        }
+	case 2:
+		return containsDuplicateTestCase{
+            []int{1, 2, 3, 4},
+            false,
+        }
+	case 3:
+		return containsDuplicateTestCase{
+            []int{1, 1, 1, 3, 3, 4, 3, 2, 4, 2},
+            true,
+        }
+	}
+	return containsDuplicateTestCase{
+        []int{1},
+        false,
     }
-    return []int{1}
 }
 
 func TestContainsDuplicate1(t *testing.T) {
-    result := containsDuplicate1(containsDuplicateGetTestCase(1))
-    if result != true {
-        t.Error("Test case 1 failed for approach 1.")
-    }
+    testCase1 := containsDuplicateGetTestCase(1)
+	result := containsDuplicate1(testCase1.array)
+	if result != testCase1.result {
+		t.Error("Test case 1 failed for approach 1.")
+	}
 
-    result = containsDuplicate1(containsDuplicateGetTestCase(2))
-    if result != false {
-        t.Error("Test case 2 failed for approach 1.")
-    }
+    testCase2 := containsDuplicateGetTestCase(2)
+	result = containsDuplicate1(testCase2.array)
+	if result != testCase2.result {
+		t.Error("Test case 2 failed for approach 1.")
+	}
 
-    result = containsDuplicate1(containsDuplicateGetTestCase(3))
-    if result != true {
-        t.Error("Test case 3 failed for approach 1.")
-    }
+    testCase3 := containsDuplicateGetTestCase(3)
+	result = containsDuplicate1(testCase3.array)
+	if result != testCase3.result {
+		t.Error("Test case 3 failed for approach 1.")
+	}
 }
 
 func TestContainsDuplicate2(t *testing.T) {
-    result := containsDuplicate2(containsDuplicateGetTestCase(1))
-    if result != true {
-        t.Error("Test case 1 failed for approach 2.")
-    }
+    testCase1 := containsDuplicateGetTestCase(1)
+	result := containsDuplicate2(testCase1.array)
+	if result != testCase1.result {
+		t.Error("Test case 1 failed for approach 2.")
+	}
 
-    result = containsDuplicate2(containsDuplicateGetTestCase(2))
-    if result != false {
-        t.Error("Test case 2 failed for approach 2.")
-    }
+    testCase2 := containsDuplicateGetTestCase(2)
+	result = containsDuplicate2(testCase2.array)
+	if result != testCase2.result {
+		t.Error("Test case 2 failed for approach 2.")
+	}
 
-    result = containsDuplicate2(containsDuplicateGetTestCase(3))
-    if result != true {
-        t.Error("Test case 3 failed for approach 2.")
-    }
+    testCase3 := containsDuplicateGetTestCase(3)
+	result = containsDuplicate2(testCase3.array)
+	if result != testCase3.result {
+		t.Error("Test case 3 failed for approach 2.")
+	}
 }
 
 func TestContainsDuplicate3(t *testing.T) {
-    result := containsDuplicate3(containsDuplicateGetTestCase(1))
-    if result != true {
-        t.Error("Test case 1 failed for approach 3.")
-    }
+    testCase1 := containsDuplicateGetTestCase(1)
+	result := containsDuplicate3(testCase1.array)
+	if result != testCase1.result {
+		t.Error("Test case 1 failed for approach 3.")
+	}
 
-    result = containsDuplicate3(containsDuplicateGetTestCase(2))
-    if result != false {
-        t.Error("Test case 2 failed for approach 3.")
-    }
+    testCase2 := containsDuplicateGetTestCase(2)
+	result = containsDuplicate3(testCase2.array)
+	if result != testCase2.result {
+		t.Error("Test case 2 failed for approach 3.")
+	}
 
-    result = containsDuplicate3(containsDuplicateGetTestCase(3))
-    if result != true {
-        t.Error("Test case 3 failed for approach 3.")
-    }
+    testCase3 := containsDuplicateGetTestCase(3)
+	result = containsDuplicate3(testCase3.array)
+	if result != testCase3.result {
+		t.Error("Test case 3 failed for approach 3.")
+	}
 }

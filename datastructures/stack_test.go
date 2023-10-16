@@ -32,7 +32,8 @@ func TestEmptyStackPop(t *testing.T) {
 }
 
 func TestStackLength(t *testing.T) {
-	testStack := stack{
+	// Testing the length of non-empty stack
+    testStack := stack{
 		items: []int{3, -5, 1, 7, -1, 2345},
 	}
 
@@ -42,6 +43,7 @@ func TestStackLength(t *testing.T) {
 }
 
 func TestStackTop(t *testing.T) {
+    // Testing the top item in the non-empty stack
 	testStack := stack{
 		items: []int{3, -5, 1, 7, -1, 2345},
 	}
@@ -58,7 +60,8 @@ func TestStackTop(t *testing.T) {
 }
 
 func TestStackPop(t *testing.T) {
-	testStack := stack{
+	// Testing pop operation on non-empty stack
+    testStack := stack{
 		items: []int{3, -5, 1, 7, -1, 2345},
 	}
 
@@ -74,7 +77,8 @@ func TestStackPop(t *testing.T) {
 }
 
 func TestStackPush(t *testing.T) {
-	testStack := stack{
+	// Testing push operation on stack
+    testStack := stack{
 		items: []int{3, -5, 1, 7, -1, 2345},
 	}
 
@@ -93,11 +97,13 @@ func TestStackSearch(t *testing.T) {
 	// Printing just for visibility
 	testStack.printStack()
 
+    // Testing searching of existing item
 	itemIndex := testStack.searchItem(7)
 	if itemIndex != 2 {
 		t.Errorf("Expected index 2 for item 7, but got %d instead.", itemIndex)
 	}
 
+    // Testing searching of non-existing item
 	itemIndex = testStack.searchItem(0)
 	if itemIndex != -1 {
 		t.Errorf("Expected index -1 for item 0 which doesn't exist, got %d instead", itemIndex)

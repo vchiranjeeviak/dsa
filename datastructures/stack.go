@@ -44,6 +44,7 @@ func (s *stack) popItem() (int, error) {
 
 func (s *stack) searchItem(item int) int {
 	// Returns the position of the item from top if found, else returns -1
+    // O(n) time complexity where n is the number of items in the stack
 	for i := s.getStackLength() - 1; i >= 0; i-- {
 		if s.items[i] == item {
 			return s.getStackLength() - i - 1

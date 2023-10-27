@@ -2,6 +2,12 @@ package arraysandhashing
 
 import "sort"
 
+// Leetcode 242
+// Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+// Approach 1: Sort the both the strings, compare each letter one by one and return false if found even one non-matching letter pair.
+// Time complexity: O(n lg n)
+// Space complexity: O(1) if used space optimised sorting algorithm
 func isAnagram1(s string, t string) bool {
 	// if length of both strings are not same, they cant be anagrams
 	if len(s) != len(t) {
@@ -29,6 +35,9 @@ func isAnagram1(s string, t string) bool {
 	return true
 }
 
+// Appraoch 2: Two strings are anagrams if there are same set of letters in both strings with same frequency. Increment the frequency of each letter every time it is appeared in one string and decrement the same if found in other string. If frequency of all letters remain 0 after traversing through two string, then they are anagrams.
+// Time complexity: O(n)
+// Space complexity: O(n)
 func isAnagram2(s string, t string) bool {
 	if len(s) != len(t) {
 		return false
